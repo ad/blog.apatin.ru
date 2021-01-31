@@ -1,0 +1,24 @@
+            <div id="e2-note-6" class="e2-note">
+                <article>
+                    <a href="{{ .Permalink }}" class="">
+                        <h1 class="e2-published e2-smart-title" style="font-size: 24px">
+                            {{ .Title }}
+                        </h1>
+                    </a>
+
+                    <div class="e2-note-tags">
+                        <span class="e2-timestamp">{{ .Date.Format (.Site.Params.dateFormat | default "02.01.2006") }}</span> &nbsp;
+                        {{ partial "tags" . }}
+                    </div>
+                    <br/>
+                    <div class="e2-note-text e2-text e2-published">
+                        {{ if not .Truncated -}}
+                            {{ .Content }}
+                        {{ else }}
+                            {{ .Summary }}
+                        <p class="foot"><a href="{{ .Permalink }}">Читать далее &rarr;</a></p>
+                        {{ end }}
+                    </div>
+                </article>
+            </div>
+            <br/>

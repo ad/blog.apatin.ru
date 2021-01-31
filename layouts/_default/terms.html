@@ -1,0 +1,8 @@
+{{ partial "header" . }}
+	<div class="e2-tags" id="e2-tags">
+	{{ range .Site.Taxonomies.tags.ByCount }}
+		<a href="{{ .Page.Permalink }}" class="e2-tag" data-weight="100">{{ .Page.Title }}</a>~ {{ .Count }}
+		<br>
+	{{ end }}
+	</div>
+{{ partial "footer" . }}

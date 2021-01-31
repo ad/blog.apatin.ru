@@ -1,0 +1,24 @@
+{{ partial "header" . }}
+<div id="e2-note-6" class="e2-note">
+    <article>
+        <h1 class="e2-published e2-smart-title">
+            <a href="{{ .Permalink }}" class="">{{ .Title }}</a> 
+        </h1>
+        <div class="e2-note-text e2-text e2-published">
+            {{ .Content }}
+        </div>
+    </article>
+    <div class="e2-note-tags">
+        <span class="e2-timestamp">{{ .Date.Format (.Site.Params.dateFormat | default "02.01.2006") }}</span> &nbsp;
+        {{ partial "tags" . }}
+    </div>
+</div>
+{{ partial "paginator-inner" . }}
+
+<!-- Related posts -->
+{{ $related := first 2 (where (where (where .Site.Pages.ByDate.Reverse ".Type" "==" "p") ".Params.tags" "intersect" .Params.tags) "Permalink" "!=" .Permalink) }}
+{{ if $related }}
+    <h4 class="page-header">Рекомендуемые посты:</h4>
+    {{ range $related }} {{ partial "list-related" . }} {{ end }}
+{{ end }}
+{{ partial "footer" . }}

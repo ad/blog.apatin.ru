@@ -1,0 +1,11 @@
+            <div id="e2-note-6">
+                    <a href="{{ .Permalink }}" class="">
+                        <h5 class="e2-published e2-smart-title" style="font-size: 18px">
+                            {{ .Title }}
+                        </h5>
+                    </a>
+                    <div class="e2-note-tags">
+                        <span class="e2-timestamp">{{ .Date.Format (.Site.Params.dateFormat | default "02.01.2006") }}</span>
+                    </div>
+            </div>
+            <br>

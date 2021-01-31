@@ -1,0 +1,15 @@
+        </div>
+
+        <div class="footer">
+            &copy;
+            <span id="e2-blog-author">{{ .Site.Params.copyright | default "" | markdownify }}</span>, 
+            {{ if gt (now.Year) 2008 }}2008—{{ end }}{{ dateFormat "2006" now }}
+
+            <a href="/rss.xml" type="application/rss+xml" target="_blank" class="e2-rss-button">RSS</a>
+            <a class="e2-rss-button" href="/tags/">Теги</a>
+        </div>
+    </div>
+    {{ partial "js-footer" . }}
+  </body>
+  <ok/>
+</html>
