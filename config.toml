@@ -1,6 +1,6 @@
 title = "Weblog"
 Title = "Weblog"
-baseURL = "http://localhost:8080"
+baseURL = "https://blog.apatin.ru"
 paginate = 10
 canonifyURLs = true
 disableHugoGeneratorInject = true
