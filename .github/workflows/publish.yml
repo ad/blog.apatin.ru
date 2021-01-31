@@ -3,7 +3,7 @@ name: Publish Site
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   build-deploy:
@@ -19,4 +19,4 @@ jobs:
         with:
           githubToken: ${{ secrets.PERSONAL_TOKEN }}
           cname: blog.apatin.ru
-          branch: master
+          branch: main
