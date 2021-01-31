@@ -1,0 +1,62 @@
+<!doctype html><html class=no-js itemscope itemtype=http://schema.org/Product><head><meta charset=utf-8><title>Let’s Encrypt SSL Certificates и Nginx - Weblog</title><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><meta name=og:title content="Let’s Encrypt SSL Certificates и Nginx - Weblog"><meta property="og:image" content="/static/favicon.png"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><link rel="shortcut icon" href=http://localhost:8080/static/favicon.ico type=image/x-icon><link rel=apple-touch-icon href=http://localhost:8080/static/favicon.ico><link rel=stylesheet href=http://localhost:8080/css/main.min.157c034e55c30a3033be80b8464d3375bb6cb8a04d8ee6c6e102071ec1624345.css integrity="sha256-FXwDTlXDCjAzvoC4Rk0zdbtsuKBNjubG4QIHHsFiQ0U=" media=screen><script type=text/javascript>(function(d,w,c){(w[c]=w[c]||[]).push(function(){try{w.yaCounter21943429=new Ya.Metrika({id:21943429,webvisor:true,clickmap:true,accurateTrackBounce:true});}catch(e){}});var n=d.getElementsByTagName("script")[0],s=d.createElement("script"),f=function(){n.parentNode.insertBefore(s,n);};s.type="text/javascript";s.async=true;s.src=(d.location.protocol=="https:"?"https:":"http:")+"//mc.yandex.ru/metrika/watch.js";if(w.opera=="[object Opera]"){d.addEventListener("DOMContentLoaded",f,false);}else{f();}})(document,window,"yandex_metrika_callbacks");</script><link rel=prev id=link-earlier href=http://localhost:8080/p/postgresql_reload/><link rel=next id=link-later href=http://localhost:8080/p/monit/></head><body><div class=common><div class=flag><div class=header-content><div class=header-description><div class=title><div class=title-inner><div class=logo-marginal><div class=e2-user-picture-container><img alt=Logo title=Logo src=http://localhost:8080/static/favicon.png></div></div><h1><a href=http://localhost:8080/><span id=e2-blog-title style=font-size:48px>Weblog</span></a></h1></div><div id=e2-blog-description><p>Личный блог с мыслями и наблюдениями</p></div></div></div></div></div><div class=content><div id=e2-note-6 class=e2-note><article><h1 class="e2-published e2-smart-title"><a href=http://localhost:8080/p/letsencrypt_nginx/>Let’s Encrypt SSL Certificates и Nginx</a></h1><div class="e2-note-text e2-text e2-published"><h2 id=первым-делом-скачиваем-актуальную-версию>Первым делом скачиваем актуальную версию</h2><pre><code>sudo apt-get update
+
+sudo apt-get install git
+
+git clone https://github.com/letsencrypt/letsencrypt
+</code></pre><pre><code>cd letsencrypt
+
+mkdir -p /etc/letsencrypt/webrootauth
+</code></pre><p>Настраиваем nginx на то, чтобы он мог ответить на проверку принадлежности сервера владельцу сертификата</p><pre><code>nano /etc/nginx/sites-enabled/default
+</code></pre><pre><code>        server {
+                listen 0.0.0.0:80;
+                location /.well-known/acme-challenge {
+                        alias /etc/letsencrypt/webrootauth/.well-known/acme-challenge;
+                        location ~ /.well-known/acme-challenge/(.*) {
+                                add_header Content-Type application/jose+json;
+                        }
+                }
+        }
+</code></pre><h2 id=перезапускаем-nginx>Перезапускаем nginx</h2><pre><code>/etc/init.d/nginx reload
+
+./letsencrypt-auto --renew-by-default -a webroot --webroot-path /etc/letsencrypt/webrootauth --text --agree-tos -d ваш.домен --email Почта@владельца.сертификата auth
+</code></pre><h2 id=настраиваем-nginx-на-работу-с-сертификатами>Настраиваем nginx на работу с сертификатами</h2><pre><code>cd /etc/nginx
+
+openssl dhparam -out dhparam.pem 2048
+
+nano /etc/nginx/sites-enabled/default&lt;/p&gt;
+</code></pre><pre><code>server {
+    listen 443 ssl;
+    listen [::]:443 ssl;
+    ssl_certificate /etc/letsencrypt/live/ваш_домен/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/ваш_домен/privkey.pem;
+    ssl_trusted_certificate /etc/letsencrypt/live/ваш_домен/chain.pem;
+    ssl_session_timeout 1d;
+    ssl_session_cache shared:SSL:10m;
+    ssl_dhparam /etc/nginx/dhparam.pem;
+    ssl_protocols TLSv1.1 TLSv1.2;
+    ssl_ciphers 'ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-DSS-AES128-GCM-SHA256:kEDH+AESGCM:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-DSS-AES128-SHA256:DHE-RSA-AES256-SHA256:DHE-DSS-AES256-SHA:DHE-RSA-AES256-SHA:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!3DES:!MD5:!PSK';
+    ssl_prefer_server_ciphers on;
+    add_header Strict-Transport-Security max-age=15768000;
+    ssl_stapling on;
+    ssl_stapling_verify on;
+    resolver 8.8.8.8 8.8.4.4 valid=86400;
+    resolver_timeout 10;
+...
+}
+</code></pre><h2 id=проверяем-конфигурацию-и-перезапускаем-nginx>Проверяем конфигурацию и перезапускаем nginx</h2><pre><code>nginx -t
+
+/etc/init.d/nginx reload&lt;/p&gt;
+</code></pre><h2 id=настраиваем-автоматическое-обновление-сертификатов>Настраиваем автоматическое обновление сертификатов</h2><pre><code>/root/letsencrypt/letsencrypt renew &gt;&gt; /dev/null 2&gt;&amp;1; /etc/init.d/nginx reload
+</code></pre></div></article><div class=e2-note-tags><span class=e2-timestamp>17.11.2015</span> &nbsp;
+<a href=http://localhost:8080/t/%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B5 class=e2-tag>техническое</a> &nbsp;
+<a href=http://localhost:8080/t/letsencrypt class=e2-tag>letsencrypt</a> &nbsp;
+<a href=http://localhost:8080/t/nginx class=e2-tag>nginx</a> &nbsp;</div></div><div class=e2-pages><a href=http://localhost:8080/p/postgresql_reload/>Ранее</a>
+<span class=e2-keyboard-shortcut>↓</span>
+<span class=e2-keyboard-shortcut>⌥</span>
+<span class=e2-keyboard-shortcut>↑</span>
+<a href=http://localhost:8080/p/monit/>Позднее</a></div><h4 class=page-header>Рекомендуемые посты:</h4><div id=e2-note-6><a href=http://localhost:8080/p/how-cloudflare-protect-email/><h5 class="e2-published e2-smart-title" style=font-size:18px>Как Cloudflare защищает email</h5></a><div class=e2-note-tags><span class=e2-timestamp>26.04.2020</span></div></div><br><div id=e2-note-6><a href=http://localhost:8080/p/github-actions-go-release/><h5 class="e2-published e2-smart-title" style=font-size:18px>Github Actions и автоматическое создание релизов на Go</h5></a><div class=e2-note-tags><span class=e2-timestamp>27.09.2019</span></div></div><br></div><div class=footer>&copy;
+<span id=e2-blog-author>Daniel Apatin</span>,
+2008—2021
+<a href=http://localhost:8080/rss.xml type=application/rss+xml target=_blank class=e2-rss-button>RSS</a>
+<a class=e2-rss-button href=http://localhost:8080/tags/>Теги</a></div></div><script type=text/javascript>(function(d,w,c){(w[c]=w[c]||[]).push(function(){try{w.yaCounter21943429=new Ya.Metrika({id:21943429,webvisor:true,clickmap:true,accurateTrackBounce:true});}catch(e){}});var n=d.getElementsByTagName("script")[0],s=d.createElement("script"),f=function(){n.parentNode.insertBefore(s,n);};s.type="text/javascript";s.async=true;s.src=(d.location.protocol=="https:"?"https:":"http:")+"//mc.yandex.ru/metrika/watch.js";if(w.opera=="[object Opera]"){d.addEventListener("DOMContentLoaded",f,false);}else{f();}})(document,window,"yandex_metrika_callbacks");document.addEventListener("DOMContentLoaded",function(){var lazyImages=[].slice.call(document.querySelectorAll("img.lazy"));if("IntersectionObserver"in window){let lazyImageObserver=new IntersectionObserver(function(entries,observer){entries.forEach(function(entry){if(entry.isIntersecting){let lazyImage=entry.target;lazyImage.src=lazyImage.dataset.src;lazyImage.classList.remove("lazy");lazyImageObserver.unobserve(lazyImage);}});});lazyImages.forEach(function(lazyImage){lazyImageObserver.observe(lazyImage);});}else{}});Array.from(document.getElementsByClassName("__email__")).forEach(function(l,index,array){var a=l.getAttribute("data-class");if(a){var s='';var r=parseInt(a.substr(0,2),16);for(var j=2;a.length-j;j+=2){var c=parseInt(a.substr(j,2),16)^r;s+=String.fromCharCode(c);}
+l.parentNode.href="mailto:"+s;l.parentNode.innerText=s;}});</script></body><ok></html>
