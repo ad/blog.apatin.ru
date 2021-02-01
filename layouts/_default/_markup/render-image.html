@@ -8,12 +8,12 @@
 	{{ $medium := $large.Fill "726x402" -}}
 	{{ $small := $medium.Fill "458x254" -}}
 <figure class="image-caption">
-    <img alt="{{ $.Text }}" srcset="
+    <img alt="{{ $.Text }}" data-srcset="
         {{ $small.RelPermalink }} 458w,
         {{ $medium.RelPermalink }} 726w,
-        {{ $large.RelPermalink }} 1200w" sizes="50vw" src="{{ $small.RelPermalink }}" />
+        {{ $large.RelPermalink }} 1200w" sizes="50vw" data-src="{{ $small.RelPermalink }}" />
     <figcaption>{{ with $.Title | safeHTML }}{{ . }}{{ end }}</figcaption>
 </figure>
 {{- else -}}
-<img src="{{ .Destination | safeURL }}" alt="{{ $.Text }}" />
+<img data-src="{{ .Destination | safeURL }}" alt="{{ $.Text }}" />
 {{- end -}}
