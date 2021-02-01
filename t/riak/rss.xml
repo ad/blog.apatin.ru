@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Weblog</title><link>/t/riak/</link><description>Личный блог с мыслями и наблюдениями</description><managingEditor>rss@apatin.ru Daniel Apatin</managingEditor><webMaster>rss@apatin.ru Daniel Apatin</webMaster><copyright>Daniel Apatin</copyright><lastBuildDate>Tue, 30 Jul 2013 10:40:00 +0300</lastBuildDate><atom:link href="/t/riak/rss.xml" rel="self" type="application/rss+xml"/><item><title>Riak — как универсальное решение</title><link>/p/riak/</link><pubDate>Tue, 30 Jul 2013 10:40:00 +0300</pubDate><author>rss@apatin.ru (Daniel Apatin)</author><guid>/p/riak/</guid><description>&lt;p>Riak — это документно-ориентированная база данных с поддержкой HTTP, JSON, REST.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Weblog</title><link>https://blog.apatin.ru/t/riak/</link><description>Личный блог с мыслями и наблюдениями</description><managingEditor>rss@apatin.ru Daniel Apatin</managingEditor><webMaster>rss@apatin.ru Daniel Apatin</webMaster><copyright>Daniel Apatin</copyright><lastBuildDate>Tue, 30 Jul 2013 10:40:00 +0300</lastBuildDate><atom:link href="https://blog.apatin.ru/t/riak/rss.xml" rel="self" type="application/rss+xml"/><item><title>Riak — как универсальное решение</title><link>https://blog.apatin.ru/p/riak/</link><pubDate>Tue, 30 Jul 2013 10:40:00 +0300</pubDate><author>rss@apatin.ru (Daniel Apatin)</author><guid>https://blog.apatin.ru/p/riak/</guid><description>
+&lt;p>Riak — это документно-ориентированная база данных с поддержкой HTTP, JSON, REST.&lt;/p>
 &lt;p>На основе Riak можно реализовать полноценный проект с CMS, поддержкой пользователей и загрузкой файлов.&lt;/p>
 &lt;h2 id="возможности">Возможности&lt;/h2>
 &lt;ul>
@@ -8,4 +9,5 @@
 &lt;li>Map/reduce, distributed grep&lt;/li>
 &lt;li>Отказоустойчивость&lt;/li>
 &lt;li>Поиск&lt;/li>
-&lt;/ul></description></item></channel></rss>
+&lt;/ul>
+&lt;p class="foot">&lt;a href="https://blog.apatin.ru/p/riak/">Читать далее&lt;/a>&lt;/p></description></item></channel></rss>
