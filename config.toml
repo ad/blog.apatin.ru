@@ -2,9 +2,11 @@ title = "Weblog"
 Title = "Weblog"
 baseURL = "https://blog.apatin.ru/"
 paginate = 10
-relativeurls = true
+relativeurls = false
 canonifyURLs = true
 disableHugoGeneratorInject = true
+
+disqusShortname = "weblog-5"
 
 [services.rss]
     limit = 10

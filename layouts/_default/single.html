@@ -21,4 +21,16 @@
     <h4 class="page-header">Рекомендуемые посты:</h4>
     {{ range $related }} {{ partial "list-related" . }} {{ end }}
 {{ end }}
+
+<div id="disqus_thread"></div>
+<script>
+    (function() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://weblog-5.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
 {{ partial "footer" . }}
