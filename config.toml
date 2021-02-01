@@ -1,7 +1,8 @@
 title = "Weblog"
 Title = "Weblog"
-baseURL = "https://blog.apatin.ru"
+baseURL = "/"
 paginate = 10
+relativeurls = true
 canonifyURLs = true
 disableHugoGeneratorInject = true
 
