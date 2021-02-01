@@ -1,15 +1,21 @@
-{{ $image := (.Page.Resources.GetMatch  (index .Params.image)) }}
+{{ $src := .Get "src"}}
+
+{{- $img := .Page.Resources.GetMatch $src -}}
+{{- if not $img -}}
+{{- $img = resources.Get $src -}}
+{{- end -}}
+
 {{ $alt := .Get "alt" }}
 {{ $width := .Get "width" }}
-{{ $src := $image }}
 
-<noscript>
-  <style>
-    img.lazy {
-      display: none;
-    }
-  </style>
-  <img src="{{ $src.RelPermalink }}" {{ if $width }}width="{{$width}}"{{ end }} />
-</noscript>
-
-<img class="lazy" {{ if $width }}width="{{$width}}"{{ end }} data-src="{{ $src.RelPermalink }}" alt="{{ $alt }}" />
+<figure>
+  <noscript>
+    <style>
+      img.lazy {
+        display: none;
+      }
+    </style>
+    <img src="{{ $img.RelPermalink }}" {{ if $width }}width="{{$width}}"{{ end }} />
+  </noscript>
+  <img class="lazy" {{ if $width }}width="{{$width}}"{{ end }} data-src="{{ $img.RelPermalink }}" alt="{{ $alt }}" />
+</figure>
