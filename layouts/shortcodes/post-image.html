@@ -2,7 +2,6 @@
 {{ $alt := .Get "alt" }}
 {{ $width := .Get "width" }}
 {{ $borderless := .Get "borderless" }}
-{{ $placeholder := ($image.Resize "48x q20") | images.Filter (images.GaussianBlur 6) }}
 {{ $src := $image }}
 {{ $src_set := ""}}
 
@@ -49,9 +48,9 @@
   </figure>
 </noscript>
 
-<figure class="{{ $border_class }} lazy">
-    <img class="lazyload" data-sizes="auto" src="{{ $src.RelPermalink }}" {{ if $width }}width="{{$width}}"{{ end }}
-      srcset="data:image/jpeg;base64,{{ $placeholder.Content | base64Encode }}" data-src="{{ $src.RelPermalink }}"
+<figure class="{{ $border_class lazy}}">
+    <img class="lazy" data-sizes="auto" src="{{ $src.RelPermalink }}" {{ if $width }}width="{{$width}}"{{ end }}
+      data-src="{{ $src.RelPermalink }}"
       data-srcset="{{ $src_set }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ $alt }}" />
   {{ if .Inner }}
   <figcaption>
