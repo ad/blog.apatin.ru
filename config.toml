@@ -1,6 +1,6 @@
 title = "Weblog"
 Title = "Weblog"
-baseURL = "/"
+baseURL = "https://blog.apatin.ru/"
 paginate = 10
 relativeurls = true
 canonifyURLs = true
