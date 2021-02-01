@@ -3,9 +3,9 @@
 </code></pre><p>Получаем список сохраненных записей (ключей):</p><pre><code>$.ajax({ url: &quot;/riak/testbucket?props=false&amp;keys=true&quot; }).done(function ( data ) { // result here data = {keys: []} }); 
 </code></pre><p>В Riak можно хранить и раздавать не только картинки, но и другие файлы, например можно положить индексный HTML-файл, который будет делать запросы к данным и выводить их для пользователей, достаточно при загрузке указать</p><pre><code>Content-Type: text/html
 </code></pre><p>Таким образом, для создания полноценного портала достаточно только Riak и Nginx(для управления правами на доступ).</p><h2 id=тонкости>Тонкости</h2><p>Отсутствие данных о времени создания ключа, может вызывать неудобство, но есть информация о времени последнего изменения ключа.</p><p>Так как Riak — документно-ориентированная база данных, то в ней нет схемы, это с одной стороны позволяет добиться гибкости, но в то же время, нужно следить за структурой данных.</p></div></article><div class=e2-note-tags><span class=e2-timestamp>30.07.2013</span> &nbsp;
-<a href=//t/%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B5 class=e2-tag>техническое</a> &nbsp;
-<a href=//t/riak class=e2-tag>riak</a> &nbsp;
-<a href=//t/%D0%BA%D0%BE%D0%B4 class=e2-tag>код</a> &nbsp;</div></div><div class=e2-pages><a href=../../p/about_comments/>Ранее</a>
+<a href=../../t/%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B5 class=e2-tag>техническое</a> &nbsp;
+<a href=../../t/riak class=e2-tag>riak</a> &nbsp;
+<a href=../../t/%D0%BA%D0%BE%D0%B4 class=e2-tag>код</a> &nbsp;</div></div><div class=e2-pages><a href=../../p/about_comments/>Ранее</a>
 <span class=e2-keyboard-shortcut>↓</span>
 <span class=e2-keyboard-shortcut>⌥</span>
 <span class=e2-keyboard-shortcut>↑</span>
