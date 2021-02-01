@@ -15,3 +15,6 @@
 # vendor/
 
 .DS_Store
+
+resources/_gen/assets/*
+resources/_gen/images/*

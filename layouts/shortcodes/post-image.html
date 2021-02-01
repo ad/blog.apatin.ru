@@ -8,6 +8,29 @@
 {{ $alt := .Get "alt" }}
 {{ $width := .Get "width" }}
 
+{{ $placeholder := ($img.Resize "48x q20") | images.Filter (images.GaussianBlur 6) }}
+
+{{ $src := $img }}
+{{ $src_set := ""}}
+
+{{ $src_set = (print $img.RelPermalink " " $img.Width "w") }}
+{{ $src := $img }}
+
+{{ if ge $img.Width "320"}}
+{{ $xs_small := $img.Resize "280x" }}
+{{ $src_set = (print $src_set ", "  $xs_small.RelPermalink " 320w") }}
+{{ end }}
+
+{{ if ge $img.Width "480"}}
+{{ $x_small := $img.Resize "440x" }}
+{{ $src_set = (print $src_set ", "  $x_small.RelPermalink " 480w") }}
+{{ end }}
+
+{{ if ge $img.Width "800"}}
+{{ $small := $img.Resize "800x" }}
+{{ $src_set = (print $src_set ", " $small.RelPermalink " 800w") }}
+{{ end }}
+
 <figure>
   <noscript>
     <style>
@@ -15,7 +38,7 @@
         display: none;
       }
     </style>
-    <img src="{{ $img.RelPermalink }}"{{ if $width }} width="{{$width}}"{{ end }}{{ if $alt }} alt="{{$alt}}"{{ end }} />
+    <img src="{{ $src.RelPermalink }}"{{ if $width }} width="{{$width}}"{{ end }}{{ if $alt }} alt="{{$alt}}"{{ end }} />
   </noscript>
-  <img class="lazy" data-src="{{ $img.RelPermalink }}"{{ if $width }} width="{{$width}}"{{ end }}{{ if $alt }} alt="{{$alt}}"{{ end }} />
+  <img class="lazy" style="max-width: 100%;" sizes="(max-width: 320px) 280px, (max-width: 480px) 440px, 800px" src="data:image/jpeg;base64,{{ $placeholder.Content | base64Encode }}" data-srcset="{{ $src_set }}" data-src="{{ $src.RelPermalink }}"{{ if $width }} width="{{$width}}"{{ end }}{{ if $alt }} alt="{{$alt}}"{{ end }} />
 </figure>
