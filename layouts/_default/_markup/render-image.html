@@ -1,5 +1,4 @@
 {{- $img := .Page.Resources.GetMatch .Destination -}}
-
 {{- if and (not $img) .Page.File -}}
 	{{ $path := path.Join .Page.File.Dir .Destination }}
 	{{- $img = resources.Get $path -}}{{- end -}}
@@ -15,5 +14,5 @@
     <figcaption>{{ with $.Title | safeHTML }}{{ . }}{{ end }}</figcaption>
 </figure>
 {{- else -}}
-<img class="lazy" data-src="{{ .Destination | safeURL }}" alt="{{ $.Text }}" />
+<img class="lazy" data-src="{{ .Destination | safeURL }}" alt="{{ $.Text }}" width="{{ $img.Width }}" height="{{ $img.Height }}" />
 {{- end -}}
