@@ -1,0 +1,9 @@
+{{- $.Scratch.Add "pagesIndex" slice -}}
+{{- range $index, $page := .Site.Pages -}}
+  {{- if gt (len $page.Content) 0 -}}
+    {{- $pageData := (dict "title" $page.Title "date" (dateFormat (.Site.Params.dateFormat | default "02.01.2006") $page.Date) "href" $page.Permalink "tags" (delimit $page.Params.tags " ; ") "tagsHTML" (partial "tags" .) "content" $page.Plain) -}}
+    {{- $.Scratch.Add "pagesIndex" $pageData -}}
+  {{- end -}}
+{{- end -}}
+{{- $.Scratch.Get "pagesIndex" | jsonify -}}
+

@@ -49,4 +49,26 @@
             }, 500);
         }
     },{passive: true});
+
+    let searchFired = false;
+    var searchEl = document.getElementsByClassName("search-field__zoom-icon")[0]
+
+    searchEl.addEventListener('click', function(){
+        if (searchFired === false) {
+            searchFired = true;
+            
+            var lunrScript = document.createElement('script');
+            lunrScript.type = 'text/javascript';
+            lunrScript.src = 'https://unpkg.com/lunr/lunr.js';
+            document.getElementsByTagName('body')[0].appendChild(lunrScript);
+
+            {{ $search := resources.Get "js/search.js" | minify }}
+            setTimeout(() => {
+                var searchScript = document.createElement('script');
+                searchScript.type = 'text/javascript';
+                searchScript.src = '{{ $search.Permalink }}';
+                document.getElementsByTagName('body')[0].appendChild(searchScript);
+            }, 500);
+        }
+    },{passive: true});
 </script>

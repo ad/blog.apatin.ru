@@ -22,7 +22,8 @@ disqusShortname = "weblog-5"
 	copyright = "Daniel Apatin"
 
 [outputs]
-    home = ["HTML", "RSS"]
+    home = ["HTML", "RSS", "JSON"]
+    page = ["HTML"]
 
 [outputFormats]
     [outputFormats.html]

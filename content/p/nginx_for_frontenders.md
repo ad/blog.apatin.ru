@@ -5,7 +5,7 @@ tags = [
     "техническое",
     "код",
     "nginx",
-    "frontent"
+    "frontend"
 ]
 +++
 
