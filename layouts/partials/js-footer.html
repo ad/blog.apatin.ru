@@ -56,11 +56,6 @@
     searchEl.addEventListener('click', function(){
         if (searchFired === false) {
             searchFired = true;
-            
-            var lunrScript = document.createElement('script');
-            lunrScript.type = 'text/javascript';
-            lunrScript.src = 'https://unpkg.com/lunr/lunr.js';
-            document.getElementsByTagName('body')[0].appendChild(lunrScript);
 
             {{ $search := resources.Get "js/search.js" | minify }}
             setTimeout(() => {
