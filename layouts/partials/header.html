@@ -2,28 +2,42 @@
 <html lang="ru" class="no-js" lang="{{ .Site.LanguageCode }}" itemscope itemtype="http://schema.org/Product">
 <head>
     <meta charset="utf-8">
-    <title>{{ if eq .Title .Site.Title }}{{ .Site.Title }} - Личный блог с мыслями и наблюдениями{{ else }}{{ with .Title }}{{.}} - {{ end }}{{ .Site.Title }}{{ end }}</title>
+    <title>{{ if eq .Title .Site.Title }}{{ .Site.Title }} — Личный блог с мыслями и наблюдениями{{ else }}{{ with .Title }}{{.}} — {{ end }}{{ .Site.Title }}{{ end }}</title>
+    <meta name="og:title" content="{{ if eq .Title .Site.Title }}{{ .Site.Title }} — Личный блог с мыслями и наблюдениями{{ else }}{{ with .Title }}{{.}} — {{ end }}{{ .Site.Title }}{{ end }}" />
+{{- $description := .Title -}}
+{{- if .IsHome -}}
+    {{ $descriptions := slice }}
+    {{- $paginator := (.Paginator 10) -}}
+    {{- range $paginator.Pages -}}
+        {{ $descriptions = $descriptions | append .Title }}
+    {{- end -}}
+    {{- $description := delimit $descriptions ". " | truncate 155 -}}
+    <meta name="description" content="{{ $description }}" />
+    <meta name="og:description" content="{{ $description }}" />
+{{- else -}}
+    <meta name="description" content="{{ $description }}" />
+    <meta name="og:description" content="{{ $description }}" />
+{{- end -}}
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="og:title" content="{{ if eq .Title .Site.Title }}{{ .Site.Title }} - Личный блог с мыслями и наблюдениями{{ else }}{{ with .Title }}{{.}} - {{ end }}{{ .Site.Title }}{{ end }}" />
     <meta property="og:image" content="/static/favicon.png" />
     <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=5">
     <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon" />
     <link rel="apple-touch-icon" href="/static/favicon.ico"/>
-{{ if .Site.Params.favicon }}
+{{- if .Site.Params.favicon -}}
     <link rel="icon" href="{{ .Site.Params.favicon | absURL }}">
-{{ end }}
-{{ partial "css" . }}
-{{ partial "js" . }}
-{{ with .OutputFormats.Get "RSS" }}
+{{- end -}}
+{{- partial "css" . -}}
+{{- partial "js" . -}}
+{{- with .OutputFormats.Get "RSS" -}}
     <link href="{{ .RelPermalink }}" rel="alternate" type="{{ .MediaType.Type }}" title="{{ $.Site.Title }}" />
     <link href="{{ .RelPermalink }}" rel="feed" type="{{ .MediaType.Type }}" title="{{ $.Site.Title }}" />
-{{ end }}
-{{ if .Prev -}}
+{{- end -}}
+{{- if .Prev -}}
     <link rel="prev" id="link-earlier" href="{{ .Prev.Permalink }}">
-{{ end }}
-{{ if .Next -}}
+{{- end -}}
+{{- if .Next -}}
     <link rel="next" id="link-later" href="{{ .Next.Permalink }}">
-{{ end }}
+{{- end }}
 </head>
 <body>
     <div class="common">
