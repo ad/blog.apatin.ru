@@ -1,5 +1,5 @@
-REGISTRY_HOST = registry.git.nethouse.ru
-NAME = hugo-test
+REGISTRY_HOST = github.com
+NAME = blog.apatin.ru
 REPO = ad/$(NAME)
 IMG  = $(REGISTRY_HOST)/$(REPO)
 TAG = latest
