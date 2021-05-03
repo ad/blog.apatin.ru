@@ -1,4 +1,4 @@
-ARG HUGO_VERSION="0.80.0"
+ARG HUGO_VERSION="0.82.0"
 FROM klakegg/hugo:${HUGO_VERSION} as build
 COPY ./ /site
 WORKDIR /site
