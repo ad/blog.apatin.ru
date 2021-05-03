@@ -3,7 +3,7 @@
 &lt;p>К счастью, в этот раз Apple выпустила
 &lt;a href="https://en.wikipedia.org/wiki/AirTag_%28tracker%29" target="_blank" rel="nofollow">продукт&lt;/a>, аналоги которого могут создавать и
 &lt;a href="https://developer.apple.com/find-my/" target="_blank" rel="nofollow">другие производители&lt;/a>.&lt;/p>
-&lt;p>У меня завалялся свободный nRF51822 iBeacon, на который оказалось возможным залить совместимую с Apple Airtag
+&lt;p>У меня завалялся свободный nRF51822 iBeacon, стоимостью 250 руб., на который оказалось возможным залить совместимую с Apple Airtag
 &lt;a href="https://github.com/seemoo-lab/openhaystack" target="_blank" rel="nofollow">прошивку&lt;/a>.&lt;/p>
 &lt;p class="foot">&lt;a href="https://blog.apatin.ru/p/airtag-emulation-with-nrf51822/">Читать далее&lt;/a>&lt;/p></description></item><item><title>Переезд на Github Pages</title><link>https://blog.apatin.ru/p/to-gh-pages/</link><pubDate>Sun, 31 Jan 2021 17:17:00 +0300</pubDate><author>rss@apatin.ru (Daniel Apatin)</author><guid>https://blog.apatin.ru/p/to-gh-pages/</guid><description><p>Понаблюдав некоторое время за этим блогом и проанализировав поведение пользователя, я пришел к выводу, что этому сайту достаточно статичного контента. Поиском по сайта за последние 3 года воспользовались пару раз.</p></description></item><item><title>Как Cloudflare защищает email</title><link>https://blog.apatin.ru/p/how-cloudflare-protect-email/</link><pubDate>Sun, 26 Apr 2020 11:30:00 +0300</pubDate><author>rss@apatin.ru (Daniel Apatin)</author><guid>https://blog.apatin.ru/p/how-cloudflare-protect-email/</guid><description>
 &lt;p>Как опубликовать адрес электронной почты на сайте, не боясь, что в него тут же начнут валиться горы спама?&lt;/p>
