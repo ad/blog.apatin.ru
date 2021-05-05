@@ -47,10 +47,8 @@ function ParseLinkHeader(link) {
     return links;
 }
 
-function append(selector, type, htmldata) {
-	var e = document.createElement(type);
-	e.innerHTML = htmldata;
-	selector.appendChild(e);
+function append(selector, htmldata) {
+	selector.insertAdjacentHTML('beforeend', htmldata);
 }
 
 function DoGithubComments(comment_id, page_id) {
@@ -69,30 +67,30 @@ function DoGithubComments(comment_id, page_id) {
 		var arr = JSON.parse(contents);
 
 		if (arr.message !== undefined) {
-			append(document.querySelector("#gh-comments-list"), 'div', "Comments are not open for this post yet.");
+			append(document.querySelector("#gh-comments"), "Comments are not open for this post yet.");
 			return;
 		}
 
         if (page_id == 1)
-        	append(document.querySelector("#gh-comments-list"), 'a', "<a href='" + url + "#new_comment_field' rel='nofollow' class='btn'>Добавить комментарий через Github</a>");
+        	append(document.querySelector("#gh-comments"), "<a href='" + url + "#new_comment_field' rel='nofollow' class='btn'>Добавить комментарий через Github</a>");
         
         var data="";
         arr.forEach(function (comment, i, arr) {
 				var date = new Date(comment.created_at);
 
-            var t = "<div id='gh-comment'>";
+            var t = "<div class='gh-comment'>";
             t += "<img src='" + comment.user.avatar_url + "' width='24px'>";
             t += "<b><a href='" + comment.user.html_url + "'>" + comment.user.login + "</a></b>";
             t += " posted at ";
             t += "<em>" + date.toLocaleString() + "</em>";
-            t += "<div id='gh-comment-hr'></div>";
+            t += "<div class='gh-comment-hr'></div>";
             if (comment.body_html) {
             	t += comment.body_html;
         	} else {
         		t += comment.body;
         	}
             t += "</div>";
-            append(document.querySelector("#gh-comments-list"), 'div', t);
+            append(document.querySelector("#gh-comments-list"), t);
         });
 
 
