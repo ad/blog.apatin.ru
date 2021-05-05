@@ -19,13 +19,13 @@
     <meta name="og:description" content="{{ $description }}" />
 {{- end -}}
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta property="og:image" content="/static/favicon.png" />
     <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=5">
+    <meta property="og:image" content="/static/apple-touch-icon.png" />
     <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon" />
-    <link rel="apple-touch-icon" href="/static/favicon.ico"/>
-{{- if .Site.Params.favicon -}}
-    <link rel="icon" href="{{ .Site.Params.favicon | absURL }}">
-{{- end -}}
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png">
+    <link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
 {{- partial "css" . -}}
 {{- partial "js" . -}}
 {{- with .OutputFormats.Get "RSS" -}}
