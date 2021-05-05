@@ -1,0 +1,22 @@
+{{ if isset .Params "ghcommentid" }}
+<div id="gh-comments">
+    <br/><br/>
+    <div id="gh-comments-list"></div>
+    <!-- <a href="javascript:void(0)" id="gh-load-comments" class="btn" style="display:none">Загрузить еще комментарии</a> -->
+</div>
+<script type="text/javascript">
+	let commentID = {{ $.Params.ghcommentid }};
+ 	let commentsFired = false;
+    if (commentsFired === false) {
+        commentsFired = true;
+
+        {{ $comments := resources.Get "js/comments.js" | minify }}
+        setTimeout(() => {
+            var commentsScript = document.createElement('script');
+            commentsScript.type = 'text/javascript';
+            commentsScript.src = '{{ $comments.Permalink }}';
+            document.getElementsByTagName('body')[0].appendChild(commentsScript);
+        }, 500);
+    }
+</script>
+{{ end }}
