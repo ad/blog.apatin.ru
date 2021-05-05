@@ -76,7 +76,7 @@ function DoGithubComments(comment_id, page_id) {
         
         var data="";
         arr.forEach(function (comment, i, arr) {
-				var date = new Date(comment.created_at);
+			var date = new Date(comment.created_at);
 
             var t = "<div class='gh-comment'>";
             t += "<img src='" + comment.user.avatar_url + "' width='24px'>";
@@ -87,7 +87,7 @@ function DoGithubComments(comment_id, page_id) {
             if (comment.body_html) {
             	t += comment.body_html;
         	} else {
-        		t += comment.body;
+        		t += comment.body.replace(/([^>])\n+/g, '$1<br/>');
         	}
             t += "</div>";
             append(document.querySelector("#gh-comments-list"), t);
