@@ -11,24 +11,41 @@
 {{ $placeholder := ($img.Resize "48x q20") | images.Filter (images.GaussianBlur 6) }}
 
 {{ $src := $img }}
-{{ $src_set := ""}}
+{{ $src_set := (print $img.RelPermalink " " $img.Width "w") }}
 
-{{ $src_set = (print $img.RelPermalink " " $img.Width "w") }}
-{{ $src := $img }}
+{{ $img_webp := $img.Resize (print $img.Width "x webp") }}
+{{ $src_set_webp := (print $img_webp.RelPermalink " " $img.Width "w") }}
 
 {{ if ge $img.Width "320"}}
-{{ $xs_small := $img.Resize "280x webp" }}
-{{ $src_set = (print $src_set ", "  $xs_small.RelPermalink " 320w") }}
+  {{ $xs_small := $img.Resize "280x" }}
+  {{ $xs_small_x2 := $img.Resize "560x" }}
+  {{ $src_set = (print $src_set ", "  $xs_small.RelPermalink " 320w") }}
+  {{ $src_set = (print $src_set ", "  $xs_small_x2.RelPermalink " 640w") }}
+
+  {{ $xs_small = $img_webp.Resize "280x webp" }}
+  {{ $xs_small_x2 = $img_webp.Resize "560x webp" }}
+  {{ $src_set_webp = (print $src_set_webp ", "  $xs_small.RelPermalink " 320w") }}
+  {{ $src_set_webp = (print $src_set_webp ", "  $xs_small_x2.RelPermalink " 640w") }}
 {{ end }}
 
-{{ if ge $img.Width "480"}}
-{{ $x_small := $img.Resize "440x webp" }}
-{{ $src_set = (print $src_set ", "  $x_small.RelPermalink " 480w") }}
+{{ if ge $img.Width "480" }}
+  {{ $x_small := $img.Resize "440x webp" }}
+  {{ $src_set = (print $src_set ", "  $x_small.RelPermalink " 480w") }}
+
+  {{ $x_small = $img_webp.Resize "440x" }}
+  {{ $src_set_webp = (print $src_set_webp ", "  $x_small.RelPermalink " 480w") }}
 {{ end }}
 
 {{ if ge $img.Width "800"}}
-{{ $small := $img.Resize "800x webp" }}
-{{ $src_set = (print $src_set ", " $small.RelPermalink " 800w") }}
+  {{ $small := $img.Resize "800x" }}
+  {{ $small_x2 := $img.Resize "1600x" }}
+  {{ $src_set = (print $src_set ", " $small.RelPermalink " 800w") }}
+  {{ $src_set = (print $src_set ", " $small_x2.RelPermalink " 1600w") }}
+
+  {{ $small = $img_webp.Resize "800x webp" }}
+  {{ $small_x2 = $img_webp.Resize "1600x webp" }}
+  {{ $src_set_webp = (print $src_set_webp ", " $small.RelPermalink " 800w") }}
+  {{ $src_set_webp = (print $src_set_webp ", " $small_x2.RelPermalink " 1600w") }}
 {{ end }}
 
 <figure>
@@ -40,5 +57,20 @@
     </style>
     <img src="{{ $src.RelPermalink }}"{{ if $width }} width="{{$width}}"{{ end }}{{ if $alt }} alt="{{$alt}}"{{ end }} />
   </noscript>
-  <img class="lazy" style="max-width: 100%;" sizes="(max-width: 320px) 280px, (max-width: 480px) 440px, 800px" src="data:image/jpeg;base64,{{ $placeholder.Content | base64Encode }}" data-srcset="{{ $src_set }}" data-src="{{ $src.RelPermalink }}"{{ if $width }} width="{{$width}}"{{ end }}{{ if $alt }} alt="{{$alt}}"{{ end }} />
+  <picture>
+    <source
+      type="image/webp"
+      data-sizes="50vw"
+      data-srcset="{{ $src_set_webp }}"
+    />
+    <img
+      class="lazy"
+      data-sizes="50vw"
+      style="max-width: 100%;"
+      src="data:image/jpeg;base64,{{ $placeholder.Content | base64Encode }}"
+      data-srcset="{{ $src_set }}"
+      {{ if $width }} width="{{$width}}"{{ end }}
+      {{ if $alt }} alt="{{$alt}}"{{ end }}
+    />
+  </picture>
 </figure>
