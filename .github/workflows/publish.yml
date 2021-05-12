@@ -20,3 +20,4 @@ jobs:
           githubToken: ${{ secrets.GITHUB_TOKEN }}
           cname: blog.apatin.ru
           branch: main
+          hugoVersion: extended_0.83.1
