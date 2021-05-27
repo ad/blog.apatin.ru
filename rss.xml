@@ -1,4 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Weblog</title><link>https://blog.apatin.ru/</link><description>Личный блог с мыслями и наблюдениями</description><managingEditor>rss@apatin.ru Daniel Apatin</managingEditor><webMaster>rss@apatin.ru Daniel Apatin</webMaster><copyright>Daniel Apatin</copyright><lastBuildDate>Mon, 03 May 2021 16:51:00 +0300</lastBuildDate><atom:link href="https://blog.apatin.ru/rss.xml" rel="self" type="application/rss+xml"/><item><title>Эмуляция Apple Airtag при помощи nRF51822 iBeacon</title><link>https://blog.apatin.ru/p/airtag-emulation-with-nrf51822/</link><pubDate>Mon, 03 May 2021 16:51:00 +0300</pubDate><author>rss@apatin.ru (Daniel Apatin)</author><guid>https://blog.apatin.ru/p/airtag-emulation-with-nrf51822/</guid><description>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Weblog</title><link>https://blog.apatin.ru/</link><description>Личный блог с мыслями и наблюдениями</description><managingEditor>rss@apatin.ru Daniel Apatin</managingEditor><webMaster>rss@apatin.ru Daniel Apatin</webMaster><copyright>Daniel Apatin</copyright><lastBuildDate>Thu, 27 May 2021 09:15:00 +0300</lastBuildDate><atom:link href="https://blog.apatin.ru/rss.xml" rel="self" type="application/rss+xml"/><item><title>Airtag — опыт использования альтернативной прошивки</title><link>https://blog.apatin.ru/p/airtag-alternative-usage-experience/</link><pubDate>Thu, 27 May 2021 09:15:00 +0300</pubDate><author>rss@apatin.ru (Daniel Apatin)</author><guid>https://blog.apatin.ru/p/airtag-alternative-usage-experience/</guid><description>
+&lt;p>Спустя две недели использования альтернативной прошивки для nRF5x, работающей в сети Apple, хочу поделиться опытом.&lt;/p>
+&lt;p>Я остановился на версии
+&lt;a href="https://github.com/acalatrava/openhaystack-firmware" target="_blank" rel="nofollow">acalatrava/openhaystack-firmware&lt;/a>, которая имеет меньшее энергопотребление. Сама прошивка залита в метку, которая находится в герметичном корпусе и висит на ошейнике собаки.&lt;/p>
+&lt;p>У работы метки есть особенности, такие как:&lt;/p>
+&lt;p class="foot">&lt;a href="https://blog.apatin.ru/p/airtag-alternative-usage-experience/">Читать далее&lt;/a>&lt;/p></description></item><item><title>Эмуляция Apple Airtag при помощи nRF51822 iBeacon</title><link>https://blog.apatin.ru/p/airtag-emulation-with-nrf51822/</link><pubDate>Mon, 03 May 2021 16:51:00 +0300</pubDate><author>rss@apatin.ru (Daniel Apatin)</author><guid>https://blog.apatin.ru/p/airtag-emulation-with-nrf51822/</guid><description>
 &lt;p>Apple выпустила в продажу новый продукт — AirTag, но в России он пока не продается, да и цена в 2990 руб. для радиометки достаточно высокая.&lt;/p>
 &lt;p>К счастью, в этот раз Apple выпустила
 &lt;a href="https://en.wikipedia.org/wiki/AirTag_%28tracker%29" target="_blank" rel="nofollow">продукт&lt;/a>, аналоги которого могут создавать и
@@ -53,10 +58,4 @@ display: none;
 &lt;p>Самой популярной системой очередей в Python является Celery, она обладает широким набором возможностей по управлению задачами.&lt;/p>
 &lt;p>К сожалению, сложные системы на базе Celery сложно поддерживать в работоспособном состоянии и когда что-то идёт не так, то найти проблему бывает весьма не просто. Можете спросить любого девопса об опыте работы с Celery, но будьте готовы услышать не очень приятные слова.&lt;/p>
 &lt;p>К счастью, есть альтернативное решение и сейчас я расскажу о нём.&lt;/p>
-&lt;p class="foot">&lt;a href="https://blog.apatin.ru/p/uwsgi-spooler/">Читать далее&lt;/a>&lt;/p></description></item><item><title>Установка и настройка PostgresQL</title><link>https://blog.apatin.ru/p/postgres_install/</link><pubDate>Mon, 12 Dec 2016 15:12:00 +0300</pubDate><author>rss@apatin.ru (Daniel Apatin)</author><guid>https://blog.apatin.ru/p/postgres_install/</guid><description>
-&lt;h2 id="установка">Установка&lt;/h2>
-&lt;pre>&lt;code>apt-get update
-apt-get upgrade
-apt-get install postgresql
-&lt;/code>&lt;/pre>
-&lt;p class="foot">&lt;a href="https://blog.apatin.ru/p/postgres_install/">Читать далее&lt;/a>&lt;/p></description></item></channel></rss>
+&lt;p class="foot">&lt;a href="https://blog.apatin.ru/p/uwsgi-spooler/">Читать далее&lt;/a>&lt;/p></description></item></channel></rss>
