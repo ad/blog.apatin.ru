@@ -16,6 +16,8 @@ ghcommentid = 3
 
 Я остановился на версии [acalatrava/openhaystack-firmware](https://github.com/acalatrava/openhaystack-firmware), которая имеет меньшее энергопотребление. Сама прошивка залита в метку, которая находится в герметичном корпусе и висит на ошейнике собаки.
 
+{{< post-image src="/images/airtag-map.png" width="600px" alt="Изображение позиции точек на карте">}}
+
 У работы метки есть особенности, такие как:
 
 <!--more-->
