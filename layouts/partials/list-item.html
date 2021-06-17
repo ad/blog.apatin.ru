@@ -9,6 +9,7 @@
                     <div class="e2-note-tags">
                         <span class="e2-timestamp">{{ .Date.Format (.Site.Params.dateFormat | default "02.01.2006") }}</span> &nbsp;
                         {{ partial "tags" . }}
+                        <span class="e2-timestamp">{{- .ReadingTime }} мин.</span>
                     </div>
                     <br/>
                     <div class="e2-note-text e2-text e2-published">
