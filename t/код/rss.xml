@@ -8,7 +8,7 @@
 &lt;p>Я расскажу как при работе с «чёрным ящиком» иметь возможность воздействать на его ответы, а также как решать проблемы связанные с безопасностью.&lt;/p>
 &lt;p class="foot">&lt;a href="https://blog.apatin.ru/p/nginx_for_frontenders/">Читать далее&lt;/a>&lt;/p></description></item><item><title>Логирование изменений в Postgresql</title><link>https://blog.apatin.ru/p/postgres_logging_trigger/</link><pubDate>Tue, 26 May 2015 12:59:00 +0300</pubDate><author>rss@apatin.ru (Daniel Apatin)</author><guid>https://blog.apatin.ru/p/postgres_logging_trigger/</guid><description>
 &lt;p>Иногда нужно добавить логирование изменений в некоторых таблицах, для этого приходится городить сложную систему, которая будет отслеживать изменения и записывать в нужное место что поменялось, и есть большой риск забыть добавить логирование в каком-то месте, эту проблему можно изящно решить сделав триггер на изменение таблицы (весь исходный код доступен на
-&lt;a href="https://gist.github.com/ad/24b606793aa73e8fd5bf1fe4a89c9507" target="_blank" rel="nofollow">github&lt;/a> или можно скопировать нажав на кнопку).&lt;/p>
+&lt;a href="https://gist.github.com/ad/24b606793aa73e8fd5bf1fe4a89c9507" target="_blank" rel="nofollow" rel="noopener" rel="noreferrer">github&lt;/a> или можно скопировать нажав на кнопку).&lt;/p>
 &lt;p class="foot">&lt;a href="https://blog.apatin.ru/p/postgres_logging_trigger/">Читать далее&lt;/a>&lt;/p></description></item><item><title>Автоматическое обновление поля в PostgreSQL</title><link>https://blog.apatin.ru/p/postgres_update_trigger/</link><pubDate>Mon, 25 May 2015 23:57:00 +0300</pubDate><author>rss@apatin.ru (Daniel Apatin)</author><guid>https://blog.apatin.ru/p/postgres_update_trigger/</guid><description>
 &lt;p>В Postgres можно сделать, чтобы при создании записи какому-то параметру автоматически присваивалось значение:&lt;/p>
 &lt;pre>&lt;code>ALTER TABLE table_name ADD COLUMN &amp;quot;updated&amp;quot; timestamp NULL DEFAULT now();
@@ -20,7 +20,7 @@
 &lt;/blockquote>
 &lt;p>Синтаксис Rust похож на C/C++ с блоками разделенными фигурными скобками и операторами такими как if, else, do, while и for.&lt;/p>
 &lt;p>А теперь вольный перевод хорошей, хотя и немного старой статьи
-&lt;a href="http://bluishcoder.co.nz/2011/03/31/a-quick-look-at-the-rust-programming-language.html" target="_blank" rel="nofollow">A Quick Look at the Rust Programming Language&lt;/a>.&lt;/p>
+&lt;a href="http://bluishcoder.co.nz/2011/03/31/a-quick-look-at-the-rust-programming-language.html" target="_blank" rel="nofollow" rel="noopener" rel="noreferrer">A Quick Look at the Rust Programming Language&lt;/a>.&lt;/p>
 &lt;p class="foot">&lt;a href="https://blog.apatin.ru/p/rust/">Читать далее&lt;/a>&lt;/p></description></item><item><title>Riak — как универсальное решение</title><link>https://blog.apatin.ru/p/riak/</link><pubDate>Tue, 30 Jul 2013 10:40:00 +0300</pubDate><author>rss@apatin.ru (Daniel Apatin)</author><guid>https://blog.apatin.ru/p/riak/</guid><description>
 &lt;p>Riak — это документно-ориентированная база данных с поддержкой HTTP, JSON, REST.&lt;/p>
 &lt;p>На основе Riak можно реализовать полноценный проект с CMS, поддержкой пользователей и загрузкой файлов.&lt;/p>
