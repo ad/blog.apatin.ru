@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Weblog</title><link>https://blog.apatin.ru/t/airtag/</link><description>Личный блог с мыслями и наблюдениями</description><managingEditor>rss@apatin.ru Daniel Apatin</managingEditor><webMaster>rss@apatin.ru Daniel Apatin</webMaster><copyright>Daniel Apatin</copyright><lastBuildDate>Thu, 27 May 2021 09:15:00 +0300</lastBuildDate><atom:link href="https://blog.apatin.ru/t/airtag/rss.xml" rel="self" type="application/rss+xml"/><item><title>Airtag — опыт использования альтернативной прошивки</title><link>https://blog.apatin.ru/p/airtag-alternative-usage-experience/</link><pubDate>Thu, 27 May 2021 09:15:00 +0300</pubDate><author>rss@apatin.ru (Daniel Apatin)</author><guid>https://blog.apatin.ru/p/airtag-alternative-usage-experience/</guid><description>
 &lt;p>Спустя две недели использования альтернативной прошивки для nRF5x, работающей в сети Apple, хочу поделиться опытом.&lt;/p>
 &lt;p>Я остановился на версии
-&lt;a href="https://github.com/acalatrava/openhaystack-firmware" target="_blank" rel="nofollow" rel="noopener" rel="noreferrer">acalatrava/openhaystack-firmware&lt;/a>, которая имеет меньшее энергопотребление. Сама прошивка залита в метку, которая находится в герметичном корпусе и висит на ошейнике собаки.&lt;/p>
+&lt;a href="https://github.com/acalatrava/openhaystack-firmware" target="_blank" rel="external nofollow noreferrer">acalatrava/openhaystack-firmware&lt;/a>, которая имеет меньшее энергопотребление. Сама прошивка залита в метку, которая находится в герметичном корпусе и висит на ошейнике собаки.&lt;/p>
 &lt;figure>
 &lt;noscript>
 &lt;style>
@@ -34,8 +34,8 @@ alt="Изображение позиции точек на карте"
 &lt;p class="foot">&lt;a href="https://blog.apatin.ru/p/airtag-alternative-usage-experience/">Читать далее&lt;/a>&lt;/p></description></item><item><title>Эмуляция Apple Airtag при помощи nRF51822 iBeacon</title><link>https://blog.apatin.ru/p/airtag-emulation-with-nrf51822/</link><pubDate>Mon, 03 May 2021 16:51:00 +0300</pubDate><author>rss@apatin.ru (Daniel Apatin)</author><guid>https://blog.apatin.ru/p/airtag-emulation-with-nrf51822/</guid><description>
 &lt;p>Apple выпустила в продажу новый продукт — AirTag, но в России он пока не продается, да и цена в 2990 руб. для радиометки достаточно высокая.&lt;/p>
 &lt;p>К счастью, в этот раз Apple выпустила
-&lt;a href="https://en.wikipedia.org/wiki/AirTag_%28tracker%29" target="_blank" rel="nofollow" rel="noopener" rel="noreferrer">продукт&lt;/a>, аналоги которого могут создавать и
-&lt;a href="https://developer.apple.com/find-my/" target="_blank" rel="nofollow" rel="noopener" rel="noreferrer">другие производители&lt;/a>.&lt;/p>
+&lt;a href="https://en.wikipedia.org/wiki/AirTag_%28tracker%29" target="_blank" rel="external nofollow noreferrer">продукт&lt;/a>, аналоги которого могут создавать и
+&lt;a href="https://developer.apple.com/find-my/" target="_blank" rel="external nofollow noreferrer">другие производители&lt;/a>.&lt;/p>
 &lt;p>У меня завалялся свободный nRF51822 iBeacon, стоимостью 250 руб., на который оказалось возможным залить совместимую с Apple Airtag
-&lt;a href="https://github.com/seemoo-lab/openhaystack" target="_blank" rel="nofollow" rel="noopener" rel="noreferrer">прошивку&lt;/a>.&lt;/p>
+&lt;a href="https://github.com/seemoo-lab/openhaystack" target="_blank" rel="external nofollow noreferrer">прошивку&lt;/a>.&lt;/p>
 &lt;p class="foot">&lt;a href="https://blog.apatin.ru/p/airtag-emulation-with-nrf51822/">Читать далее&lt;/a>&lt;/p></description></item></channel></rss>
