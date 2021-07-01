@@ -1,13 +1,13 @@
 {{ if or .Prev .Next -}}
 <div class="e2-pages">
-    {{ if .Prev }}
+    {{- if .Prev -}}
     <a href="{{ .Prev.Permalink }}">Ранее</a>
     <span class="e2-keyboard-shortcut">↓</span>
-    {{ end }}
+    {{- end -}}
     <span class="e2-keyboard-shortcut">⌥</span>
-    {{ if .Next }}
+    {{- if .Next -}}
     <span class="e2-keyboard-shortcut">↑</span>
     <a href="{{ .Next.Permalink }}">Позднее</a>
-    {{ end }}
+    {{- end -}}
 </div>
 {{ end }}
