@@ -1,4 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Weblog</title><link>https://blog.apatin.ru/t/%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B5/</link><description>Личный блог с мыслями и наблюдениями</description><managingEditor>rss@apatin.ru Daniel Apatin</managingEditor><webMaster>rss@apatin.ru Daniel Apatin</webMaster><copyright>Daniel Apatin</copyright><lastBuildDate>Thu, 27 May 2021 09:15:00 +0300</lastBuildDate><atom:link href="https://blog.apatin.ru/t/%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B5/rss.xml" rel="self" type="application/rss+xml"/><item><title>Airtag — опыт использования альтернативной прошивки</title><link>https://blog.apatin.ru/p/airtag-alternative-usage-experience/</link><pubDate>Thu, 27 May 2021 09:15:00 +0300</pubDate><author>rss@apatin.ru (Daniel Apatin)</author><guid>https://blog.apatin.ru/p/airtag-alternative-usage-experience/</guid><description>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Weblog</title><link>https://blog.apatin.ru/t/%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B5/</link><description>Личный блог с мыслями и наблюдениями</description><managingEditor>rss@apatin.ru Daniel Apatin</managingEditor><webMaster>rss@apatin.ru Daniel Apatin</webMaster><copyright>Daniel Apatin</copyright><lastBuildDate>Thu, 24 Feb 2022 21:34:00 +0300</lastBuildDate><atom:link href="https://blog.apatin.ru/t/%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B5/rss.xml" rel="self" type="application/rss+xml"/><item><title>Создание контента в Hugo из внешнего источника (json)</title><link>https://blog.apatin.ru/p/hugo-generate-content-from-external-source/</link><pubDate>Thu, 24 Feb 2022 21:34:00 +0300</pubDate><author>rss@apatin.ru (Daniel Apatin)</author><guid>https://blog.apatin.ru/p/hugo-generate-content-from-external-source/</guid><description>
+&lt;p>Случилось то, что многие ждали, в
+&lt;a href="https://github.com/gohugoio/hugo/releases/tag/v0.90.0" target="_blank" rel="external nofollow noreferrer">Hugo 0.90&lt;/a> появилось &lt;strong>resources.Get&lt;/strong>. А затем и &lt;strong>getJSON&lt;/strong>/&lt;strong>getCSV&lt;/strong>.&lt;/p>
+&lt;p>Это позволяет использовать в качестве источника данных для формирования контента внешние ресурсы, например rss-json фид.&lt;/p>
+&lt;p>Давайте попробуем это использовать и построим блог из внешних данных, например из rss блога Github.&lt;/p>
+&lt;p class="foot">&lt;a href="https://blog.apatin.ru/p/hugo-generate-content-from-external-source/">Читать далее&lt;/a>&lt;/p></description></item><item><title>Airtag — опыт использования альтернативной прошивки</title><link>https://blog.apatin.ru/p/airtag-alternative-usage-experience/</link><pubDate>Thu, 27 May 2021 09:15:00 +0300</pubDate><author>rss@apatin.ru (Daniel Apatin)</author><guid>https://blog.apatin.ru/p/airtag-alternative-usage-experience/</guid><description>
 &lt;p>Спустя две недели использования альтернативной прошивки для nRF5x, работающей в сети Apple, хочу поделиться опытом.&lt;/p>
 &lt;p>Я остановился на версии
 &lt;a href="https://github.com/acalatrava/openhaystack-firmware" target="_blank" rel="external nofollow noreferrer">acalatrava/openhaystack-firmware&lt;/a>, которая имеет меньшее энергопотребление. Сама прошивка залита в метку, которая находится в герметичном корпусе и висит на ошейнике собаки.&lt;/p>
@@ -82,10 +87,4 @@ apt-get install postgresql
 &lt;h2 id="установка">Установка&lt;/h2>
 &lt;pre>&lt;code>apt-get install monit
 &lt;/code>&lt;/pre>
-&lt;p class="foot">&lt;a href="https://blog.apatin.ru/p/monit/">Читать далее&lt;/a>&lt;/p></description></item><item><title>Let’s Encrypt SSL Certificates и Nginx</title><link>https://blog.apatin.ru/p/letsencrypt_nginx/</link><pubDate>Tue, 17 Nov 2015 14:44:00 +0300</pubDate><author>rss@apatin.ru (Daniel Apatin)</author><guid>https://blog.apatin.ru/p/letsencrypt_nginx/</guid><description>
-&lt;h2 id="первым-делом-скачиваем-актуальную-версию">Первым делом скачиваем актуальную версию&lt;/h2>
-&lt;pre>&lt;code>sudo apt-get update
-sudo apt-get install git
-git clone https://github.com/letsencrypt/letsencrypt
-&lt;/code>&lt;/pre>
-&lt;p class="foot">&lt;a href="https://blog.apatin.ru/p/letsencrypt_nginx/">Читать далее&lt;/a>&lt;/p></description></item></channel></rss>
+&lt;p class="foot">&lt;a href="https://blog.apatin.ru/p/monit/">Читать далее&lt;/a>&lt;/p></description></item></channel></rss>
