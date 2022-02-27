@@ -51,7 +51,7 @@ function append(selector, htmldata) {
 	selector.insertAdjacentHTML('beforeend', htmldata);
 }
 
-function DoGithubComments(comment_id, page_id) {
+function DoGithubComments(comment_id, page_id, since) {
     var repo_name = "ad/blog.apatin.ru";
 
     if (page_id === undefined) {
@@ -61,7 +61,7 @@ function DoGithubComments(comment_id, page_id) {
     var url = "https://github.com/" + repo_name + "/issues/" + comment_id;
     var api_url = "https://api.github.com/repos/" + repo_name;
     var api_issue_url = api_url + "/issues/" + comment_id;
-    var api_comments_url = api_url + "/issues/" + comment_id + "/comments" + "?page=" + page_id;
+    var api_comments_url = api_url + "/issues/" + comment_id + "/comments" + "?page=" + page_id + "&since=" + since;
 
 	getUrl(api_comments_url, function (contents, headers) {
 		var arr = JSON.parse(contents);
@@ -106,4 +106,4 @@ function DoGithubComments(comment_id, page_id) {
 	});
 }
 
-DoGithubComments(commentID);
+DoGithubComments(commentID, 1, since);

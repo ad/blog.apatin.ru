@@ -8,9 +8,7 @@ tags = [
     "xml"
 ]
 ghcommentid = 4
-
 +++
-
 Случилось то, что многие ждали, в [Hugo 0.90](https://github.com/gohugoio/hugo/releases/tag/v0.90.0) появилось **resources.Get**. А затем и **getJSON**/**getCSV**.
 
 Это позволяет использовать в качестве источника данных для формирования контента внешние ресурсы, например rss-json фид.

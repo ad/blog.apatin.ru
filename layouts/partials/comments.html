@@ -1,12 +1,38 @@
 {{ if isset .Params "ghcommentid" }}
 <div id="gh-comments">
     <br/><br/>
-    <div id="gh-comments-list"></div>
+    <div id="gh-comments-list">
+    {{- $commentsPath := printf "https://api.github.com/repos/ad/blog.apatin.ru/issues/%d/comments?per_page=100" $.Params.ghcommentid -}}
+    {{- $since := "" -}}
+    {{ with getJSON $commentsPath }}
+        {{ range . }}
+            {{ $since = .created_at }}
+        <div class='gh-comment'>
+            <img src='{{ .user.avatar_url }}' width='24px'>
+            <b><a href='{{ .user.html_url }}'>{{ .user.login }}</a></b>
+             posted at 
+            <em>{{ (time .created_at).Format "02.01.2006, 15:04:05" }} UTC</em>
+            <div class='gh-comment-hr'></div>
+            {{ with .body_html }}
+                {{ . }}
+            {{ else }}
+                {{ (replace (.body | htmlEscape) "\r\n" "<br/>") | safeHTML }}
+            {{ end }}
+        </div>
+        {{ end }}
+    {{ end }}
+    </div>
     <!-- <a href="javascript:void(0)" id="gh-load-comments" class="btn" style="display:none">Загрузить еще комментарии</a> -->
 </div>
 <script type="text/javascript">
 	let commentID = {{ $.Params.ghcommentid }};
  	let commentsFired = false;
+    {{ with $since }}
+        {{- $t := (time .) -}}
+    let since = '{{ ($t.Add 1000000000).Format "2006-01-02T15:04:05.999Z" }}';
+    {{ else }}
+    let since = '';
+    {{ end }}
     if (commentsFired === false) {
         commentsFired = true;
 
