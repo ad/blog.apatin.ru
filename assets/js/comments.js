@@ -14,7 +14,7 @@ function getXmlHttp(){
 
 function getUrl(url, cb) { 
 	var xmlhttp = getXmlHttp();
-	xmlhttp.open("GET", url+'?r='+Math.random());
+	xmlhttp.open("GET", url+'&r='+Math.random());
 	xmlhttp.onreadystatechange = function() {
 		if (xmlhttp.readyState == 4) {
 		    var headers = xmlhttp.getAllResponseHeaders();
@@ -61,15 +61,14 @@ function DoGithubComments(comment_id, page_id, since) {
     var url = "https://github.com/" + repo_name + "/issues/" + comment_id;
     var api_url = "https://api.github.com/repos/" + repo_name;
     var api_issue_url = api_url + "/issues/" + comment_id;
-    var api_comments_url = api_url + "/issues/" + comment_id + "/comments" + "?page=" + page_id + "&since=" + since;
+    var api_comments_url = api_url + "/issues/" + comment_id + "/comments" + "?per_page=100&page=" + page_id + "&since=" + since;
 
-	getUrl(api_comments_url, function (contents, headers) {
-		var arr = JSON.parse(contents);
-
-		if (arr.message !== undefined) {
-			append(document.querySelector("#gh-comments"), "Comments are not open for this post yet.");
-			return;
-		}
+    getUrl(api_comments_url, function (contents, headers) {
+	var arr = JSON.parse(contents);
+	if (arr.message !== undefined) {
+		append(document.querySelector("#gh-comments"), "Comments are not open for this post yet.");
+		return;
+	}
 
         if (page_id == 1)
         	append(document.querySelector("#gh-comments"), "<a href='" + url + "#new_comment_field' rel='nofollow' class='btn'>Добавить комментарий через Github</a>");
