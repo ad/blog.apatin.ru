@@ -1,5 +1,1 @@
-User-Agent: *
-Disallow: 
-Disallow: /login
-
-Sitemap: https://blog.apatin.ru/sitemap.xml
+User-agent: *
