@@ -5,6 +5,7 @@ paginate = 10
 relativeurls = false
 canonifyURLs = true
 disableHugoGeneratorInject = true
+enableRobotsTXT = true
 
 [services.rss]
     limit = 10
