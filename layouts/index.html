@@ -1,19 +1,21 @@
 {{ partial "header" . }}
-    {{- $paginator := (.Paginator 10) -}}
-    {{- range $paginator.Pages -}}
-        {{ partial "list-item" . }}
+
+{{- $paginator := (.Paginator 10) -}}
+{{- range $paginator.Pages -}}
+    {{ partial "list-item" . }}
+{{- end -}}
+{{- if or $paginator.HasPrev $paginator.HasNext -}}
+<div class="e2-pages">
+    {{- if $paginator.HasPrev -}}
+    <a href="{{ $paginator.Prev.URL }}" id="link-earlier">Ранее</a>
+    <span class="e2-keyboard-shortcut">↓</span>
     {{- end -}}
-    {{- if or $paginator.HasPrev $paginator.HasNext -}}
-    <div class="e2-pages">
-        {{- if $paginator.HasPrev -}}
-        <a href="{{ $paginator.Prev.URL }}">Ранее</a>
-        <span class="e2-keyboard-shortcut">↓</span>
-        {{- end -}}
-        <span class="e2-keyboard-shortcut">⌥</span>
-        {{- if $paginator.HasNext -}}
-        <span class="e2-keyboard-shortcut">↑</span>
-        <a href="{{ $paginator.Next.URL }}">Позднее</a>
-        {{- end -}}
-    </div>
+    <span class="e2-keyboard-shortcut">⌥</span>
+    {{- if $paginator.HasNext -}}
+    <span class="e2-keyboard-shortcut">↑</span>
+    <a href="{{ $paginator.Next.URL }}" id="link-later">Позднее</a>
     {{- end -}}
+</div>
+{{- end -}}
+
 {{ partial "footer" . }}
