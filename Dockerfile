@@ -1,5 +1,5 @@
-ARG HUGO_VERSION="0.101.0-ext"
-FROM klakegg/hugo:${HUGO_VERSION} as build
+ARG HUGO_VERSION="0.120.4-ext-alpine"
+FROM floryn90/hugo:${HUGO_VERSION} as build
 COPY ./ /site
 WORKDIR /site
 RUN hugo --minify
