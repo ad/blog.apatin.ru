@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" aria-labelledby="title" viewBox="0 0 200 24">
+    <title id="title">Email Us!</title>
+    <defs>
+        <style>
+            text {
+                font-size: 16px;
+                fill: rgb(0, 0, 255);
+            }
+
+            a:focus text, a:hover text {
+                text-decoration: underline 2px solid rgb(0, 0, 255);
+                text-underline-offset: 4px;
+            }
+        </style>
+    </defs>
+    <a href="mailto:myemail@mydomain.tld" aria-label="Email Us!">
+        <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle">myemail@mydomain.tld</text>
+    </a>
+</svg>
